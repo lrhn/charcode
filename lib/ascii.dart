@@ -113,6 +113,8 @@ const int $quotation         = 0x22;
 /// Character '#'.
 const int $hash              = 0x23;
 /// Character '$'.
+const int $$                 = 0x24;
+/// Character '$'.
 const int $dollar            = 0x24;
 /// Character '%'.
 const int $percent           = 0x25;
@@ -271,6 +273,8 @@ const int $circumflex        = 0x5E;
 const int $caret             = 0x5E;
 /// Character '^'.
 const int $hat               = 0x5E;
+/// Character '_'.
+const int $_                 = 0x5F;
 /// Character '_'.
 const int $underscore        = 0x5F;
 /// Character '_'.
