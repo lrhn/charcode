@@ -40,3 +40,9 @@ letters and some mathematical symbols.
 
 The `charcode.dart` library just exports both `ascii.dart` and
 `html_entity.dart`.
+
+# Rationale
+
+The Dart language doesn't have character literals. If that ever happens, this 
+library will be irrelevant.
+See [http://dartbug.com/4415](request for character literals).
