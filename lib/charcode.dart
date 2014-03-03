@@ -7,9 +7,9 @@
  *
  * Includes all ASCII and Latin-1 characters.
  *
- * Exports the libraries `ascii.dart` and `html-entity.dart`.
+ * Exports the libraries `ascii.dart` and `html_entity.dart`.
  */
 library charcode;
 
 export "ascii.dart";
-export "html-entity.dart";
+export "html_entity.dart";

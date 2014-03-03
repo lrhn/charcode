@@ -332,9 +332,9 @@ static const int $thetasym = 0x03D1;
 static const int $upsih    = 0x03D2;
 /// Greek pi symbol ('ϖ')
 static const int $piv      = 0x03D6;
-/// en space (' ')
+/// en space
 static const int $ensp     = 0x2002;
-/// em space (' ')
+/// em space
 static const int $emsp     = 0x2003;
 /// thin space
 static const int $thinsp   = 0x2009;

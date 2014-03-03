@@ -120,7 +120,7 @@ const int $percent           = 0x25;
 const int $amp               = 0x26;
 /// Character '&'.
 const int $ampersand         = 0x26;
-/// Character '''.
+/// Character "'".
 const int $apos              = 0x27;
 /// Character '''.
 const int $apostrophe        = 0x27;
