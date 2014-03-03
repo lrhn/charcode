@@ -44,5 +44,6 @@ The `charcode.dart` library just exports both `ascii.dart` and
 # Rationale
 
 The Dart language doesn't have character literals. If that ever happens, this
-library will be irrelevant.
+library will be irrelevant. Until then, this library can be used for the most
+common characters.
 See [http://dartbug.com/4415](request for character literals).
