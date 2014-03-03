@@ -43,6 +43,6 @@ The `charcode.dart` library just exports both `ascii.dart` and
 
 # Rationale
 
-The Dart language doesn't have character literals. If that ever happens, this 
+The Dart language doesn't have character literals. If that ever happens, this
 library will be irrelevant.
 See [http://dartbug.com/4415](request for character literals).
