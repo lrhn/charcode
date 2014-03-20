@@ -1,4 +1,4 @@
-Characterter code constants.
+Character code constants.
 
 These libraries define symbolic names for some character codes.
 
