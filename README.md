@@ -2,6 +2,8 @@ Character code constants.
 
 These libraries define symbolic names for some character codes.
 
+This is not an official Goggle package, and is not supported by Google.
+
 ## Using
 
 Import either one of the libraries:
