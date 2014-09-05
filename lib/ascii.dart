@@ -18,7 +18,7 @@
  * For less common symbols, a selection of common names are used.
  *
  * For parenthetical markers, there is both a short name, [$lparen]/[$rparen],
- * and a long name, $[open_paren]/ $[close_paren].
+ * and a long name, [$open_paren]/ [$close_paren].
  *
  * For common HTML entities, the entity names are also useable as symbolic
  * names: [$apos], [$quot], [$lt], [$gt], and [$amp].
@@ -190,7 +190,7 @@ const int $less_than         = 0x3C;
 const int $langle            = 0x3C;
 /// Character '<'.
 const int $open_angle        = 0x3C;
-/// Character '    ='.
+/// Character '='.
 const int $equal             = 0x3D;
 /// Character '>'.
 const int $gt                = 0x3E;

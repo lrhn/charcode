@@ -1,5 +1,5 @@
 name: charcode
-version: 1.0.0
+version: 1.0.1
 author: Dart Team <misc@dartlang.org>
 description: >
   Constants for ASCII and common non-ASCII character codes.
