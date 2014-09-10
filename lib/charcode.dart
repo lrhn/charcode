@@ -8,8 +8,12 @@
  * Includes all ASCII and Latin-1 characters.
  *
  * Exports the libraries `ascii.dart` and `html_entity.dart`.
+ *
+ * Hides the characters `$minus`, `$sub` and `$tilde` from
+ * `html_entities.dart`, since other characters have the same name in
+ * `ascii.dart`.
  */
 library charcode;
 
 export "ascii.dart";
-export "html_entity.dart";
+export "html_entity.dart" hide $minus, $tilde, $sub;

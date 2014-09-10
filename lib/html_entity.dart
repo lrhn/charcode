@@ -13,8 +13,11 @@
  * symbols, mathematical symbols and Greek litters.
  *
  * The five characters that are ASCII
- * are exported from the "ascii.dart" library,
- * so the libraries can both be imported without conflict.
+ * are exported from the `ascii.dart` library.
+ *
+ * Three names conflict with `ascii.dart`: `$minus`, `$sub` and `$tilde`.
+ * If importing both libraries, these three should be hidden from one of the
+ * libraries.
  */
 library charcode.htmlentity.dollar_lowercase;
 

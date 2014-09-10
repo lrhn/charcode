@@ -148,6 +148,8 @@ const int $plus              = 0x2B;
 const int $comma             = 0x2C;
 /// Character '-'.
 const int $minus             = 0x2D;
+/// Character '-'.
+const int $dash              = 0x2D;
 /// Character '.'.
 const int $dot               = 0x2E;
 /// Character '.'.
