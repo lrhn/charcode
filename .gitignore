@@ -1,0 +1,7 @@
+.idea
+.pub
+pubspec.lock
+packages
+build
+.project
+.settings

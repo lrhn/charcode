@@ -7,6 +7,6 @@ description: >
   When working with characters in Dart, there is no simple way to
   represent the code point of a character.
   This library declares readable symbolic names for character codes.
-homepage: http://www.dartlang.org
+homepage: https://github.com/dart-lang/charcode
 environment:
   sdk: '>=1.0.0 <2.0.0'
