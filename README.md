@@ -1,6 +1,6 @@
 Character code constants.
 
-[![Build Status](https://travis-ci.org/dart-lang/charcode.svg?branch=travis_config)](https://travis-ci.org/dart-lang/charcode)
+[![Build Status](https://travis-ci.org/dart-lang/charcode.svg?branch=travis_config)](https://travis-ci.org/dart-lang/charcode) [![Pub](https://img.shields.io/pub/v/charcode.svg)](https://pub.dartlang.org/packages/charcode)
 
 These libraries define symbolic names for some character codes.
 
