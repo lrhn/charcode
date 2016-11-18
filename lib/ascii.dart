@@ -2,27 +2,25 @@
 // for details. All rights reserved. Use of this source is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * Declare integer constants for each ASCII character.
- *
- * The constants all start with "$" to avoid conflicting with other constants.
- *
- * For characters that are valid in an identifier, the character iteself
- * follows the "$". For other characters, a symbolic name is used.
- * In some cases, multiple alternative symbolic names are provided.
- * Please stick to using one name per character in your code.
- *
- * The symbolic names are, where applicable, the name of the symbol without
- * any "mark", "symbol" "sign" or "accent" suffix.
- * Examples: [$exclamation], [$pipe], [$dollar] and [$grave].
- * For less common symbols, a selection of common names are used.
- *
- * For parenthetical markers, there is both a short name, [$lparen]/[$rparen],
- * and a long name, [$open_paren]/ [$close_paren].
- *
- * For common HTML entities, the entity names are also useable as symbolic
- * names: [$apos], [$quot], [$lt], [$gt], and [$amp].
- */
+/// Declare integer constants for each ASCII character.
+///
+/// The constants all start with "$" to avoid conflicting with other constants.
+///
+/// For characters that are valid in an identifier, the character iteself
+/// follows the "$". For other characters, a symbolic name is used.
+/// In some cases, multiple alternative symbolic names are provided.
+/// Please stick to using one name per character in your code.
+///
+/// The symbolic names are, where applicable, the name of the symbol without
+/// any "mark", "symbol" "sign" or "accent" suffix.
+/// Examples: [$exclamation], [$pipe], [$dollar] and [$grave].
+/// For less common symbols, a selection of common names are used.
+///
+/// For parenthetical markers, there is both a short name, [$lparen]/[$rparen],
+/// and a long name, [$open_paren]/ [$close_paren].
+///
+/// For common HTML entities, the entity names are also useable as symbolic
+/// names: [$apos], [$quot], [$lt], [$gt], and [$amp].
 library charcode.ascii.dollar_lowercase;
 
 // Control characters.
