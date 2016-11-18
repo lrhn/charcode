@@ -1,6 +1,7 @@
 Character code constants.
 
-[![Build Status](https://travis-ci.org/dart-lang/charcode.svg?branch=travis_config)](https://travis-ci.org/dart-lang/charcode) [![Pub](https://img.shields.io/pub/v/charcode.svg)](https://pub.dartlang.org/packages/charcode)
+[![Build Status](https://travis-ci.org/dart-lang/charcode.svg?branch=master)](https://travis-ci.org/dart-lang/charcode)
+[![Pub](https://img.shields.io/pub/v/charcode.svg)](https://pub.dartlang.org/packages/charcode)
 
 These libraries define symbolic names for some character codes.
 
@@ -8,12 +9,16 @@ These libraries define symbolic names for some character codes.
 
 Import either one of the libraries:
 
-    import "package:charcode/ascii.dart"
-    import "package:charcode/html_entity.dart"
+```dart
+import "package:charcode/ascii.dart";
+import "package:charcode/html_entity.dart";
+```
 
 or import both libraries using the `charcode.dart` library:
 
-    import "package:charcode/charcode.dart"
+```dart
+import "package:charcode/charcode.dart";
+```
 
 # Naming
 
@@ -25,15 +30,15 @@ Examples: `$_`, `$a`, `$B` and `$3`. Other characters are given symbolic names.
 
 The names of letters are lower-case for lower-case letters, and mixed- or
 upper-case for upper-case letters. The names of symbols are all lower-case,
-and omit suffixes like "sign", "symbol" and "mark". E
-xamples: `$plus`, `$exclamation`
+and omit suffixes like "sign", "symbol" and "mark".
+Examples: `$plus`, `$exclamation`
 
 The `ascii.dart` library defines a symbolic name for each ASCII character.
-For some chraceters, it has more than one name. For example the common `$tab`
-and the official `$ht` for the horisontal tab.
+For some characters, it has more than one name. For example the common `$tab`
+and the official `$ht` for the horizontal tab.
 
 The `html_entity.dart` library defines a constant for each HTML 4.01 character
-entity, using the standard entity abbreviation, incluing its case.
+entity, using the standard entity abbreviation, including its case.
 Examples: `$nbsp` for `&nbps;`, `$aring` for the lower-case `&aring;`
 and `$Aring` for the upper-case `&Aring;`.
 

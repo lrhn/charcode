@@ -6,7 +6,7 @@
 ///
 /// The constants all start with "$" to avoid conflicting with other constants.
 ///
-/// For characters that are valid in an identifier, the character iteself
+/// For characters that are valid in an identifier, the character itself
 /// follows the "$". For other characters, a symbolic name is used.
 /// In some cases, multiple alternative symbolic names are provided.
 /// Please stick to using one name per character in your code.
@@ -19,7 +19,7 @@
 /// For parenthetical markers, there is both a short name, [$lparen]/[$rparen],
 /// and a long name, [$open_paren]/ [$close_paren].
 ///
-/// For common HTML entities, the entity names are also useable as symbolic
+/// For common HTML entities, the entity names are also usable as symbolic
 /// names: [$apos], [$quot], [$lt], [$gt], and [$amp].
 library charcode.ascii.dollar_lowercase;
 
