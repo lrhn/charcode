@@ -9,4 +9,4 @@ description: >
   This library declares readable symbolic names for character codes.
 homepage: https://github.com/dart-lang/charcode
 environment:
-  sdk: '>=1.0.0 <=2.0.0-dev.infinity'
+  sdk: '>=1.0.0 <2.0.0-dev.infinity'
