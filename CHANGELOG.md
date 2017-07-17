@@ -1,3 +1,7 @@
+## 1.1.2
+
+- Updated the SDK constraint.
+
 ## 1.1.1
 
 - Spelling fixes.
