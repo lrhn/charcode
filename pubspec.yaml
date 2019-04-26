@@ -1,5 +1,5 @@
 name: charcode
-version: 1.1.2
+version: 1.1.3-dev
 author: Dart Team <misc@dartlang.org>
 description: >-
   Constants for ASCII and common non-ASCII character codes.
@@ -7,5 +7,9 @@ description: >-
   represent the code point of a character.
   This library declares readable symbolic names for character codes.
 homepage: https://github.com/dart-lang/charcode
+
 environment:
-  sdk: '>=1.0.0 <3.0.0'
+  sdk: '>=2.0.0 <3.0.0'
+
+dev_dependencies:
+  pedantic: ^1.0.0
