@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// ignore_for_file: constant_identifier_names
+
 /// Declare integer constants for each ASCII character.
 ///
 /// The constants all start with "$" to avoid conflicting with other constants.
