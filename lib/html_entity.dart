@@ -19,7 +19,7 @@
 /// libraries.
 library charcode.htmlentity.dollar_lowercase;
 
-export "ascii.dart" show $quot, $amp, $apos, $lt, $gt;
+export 'ascii.dart' show $quot, $amp, $apos, $lt, $gt;
 
 /// no-break space (non-breaking space)
 const int $nbsp = 0x00A0;
