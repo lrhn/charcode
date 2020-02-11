@@ -1,3 +1,7 @@
+## 1.1.3
+
+- Added example, fixed recommended lints.
+
 ## 1.1.2
 
 - Updated the SDK constraint.
