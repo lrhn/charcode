@@ -1,3 +1,7 @@
+## 1.2.0-nullsafety
+
+- Opt in to null safety.
+
 ## 1.1.3
 
 - Added example, fixed recommended lints.
