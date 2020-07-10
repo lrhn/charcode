@@ -8,7 +8,7 @@
 
 ## 1.1.3
 
-- Added example, fixed recommended lints.
+- Added example, changed lints.
 
 ## 1.1.2
 
@@ -16,9 +16,7 @@
 
 ## 1.1.1
 
-- Spelling fixes.
-
-- Linting fixes.
+- Spelling and linting fixes.
 
 ## 1.1.0
 

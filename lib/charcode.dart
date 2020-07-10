@@ -13,5 +13,5 @@
 /// `ascii.dart`.
 library charcode;
 
-export 'ascii.dart';
-export 'html_entity.dart' hide $minus, $tilde, $sub;
+export "ascii.dart";
+export "html_entity.dart" hide $minus, $tilde, $sub;
