@@ -1,11 +1,10 @@
 language: dart
 
 dart:
-  - 2.0.0
   - dev
 
 dart_task:
-  - dart_analyzer: --fatal-warnings --fatal-infos .
+  - dart_analyzer: --enable-experiment=non-nullable --fatal-warnings --fatal-infos .
 
 matrix:
   include:
@@ -15,7 +14,7 @@ matrix:
 
 # Only building master means that we don't run two builds for each pull request.
 branches:
-  only: [master]
+  only: [master, null_safety]
 
 cache:
  directories:
