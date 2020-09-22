@@ -1,24 +1,21 @@
 name: charcode
-version: 1.2.0-nullsafety.1
-description: >-
-  Constants for ASCII and common non-ASCII character codes represented by
-  top-level constants.
-homepage: https://github.com/dart-lang/charcode
+version: 1.2.0-nullsafety.2
+description: >
+  Constants for ASCII and common non-ASCII character codes.
 
 environment:
   # This must remain a tight constraint until nnbd is stable
   sdk: '>=2.10.0-0 <2.11.0'
 
 dev_dependencies:
-  pedantic: ^1.0.0
+  test: ^1.15.0
+  pedantic: '>=1.9.0 <2.0.0'
 
 dependency_overrides:
   async:
     git: git://github.com/dart-lang/async.git
   boolean_selector:
     git: git://github.com/dart-lang/boolean_selector.git
-  charcode:
-    git: git://github.com/dart-lang/charcode.git
   collection:
     git: git://github.com/dart-lang/collection.git
   js:
