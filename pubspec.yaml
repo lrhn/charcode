@@ -1,5 +1,5 @@
 name: charcode
-version: 1.2.0-nullsafety.1
+version: 1.2.0-nullsafety.2
 description: >
   Constants for ASCII and common non-ASCII character codes.
 
