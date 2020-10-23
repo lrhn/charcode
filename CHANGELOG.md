@@ -1,9 +1,6 @@
-## 1.2.0-nullsafety.3
-
-* Allow prerelease versions of the 2.12 sdk.
-
 ## 1.2.0-nullsafety.2
 
+* Allow prerelease versions of the 2.12 sdk.
 - Add command line functionality to generate constants.
   Allows clients to generate their own constants instead of
   depending on the package at run-time.
