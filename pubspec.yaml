@@ -1,6 +1,7 @@
 name: charcode
 version: 1.2.0-nullsafety.3
-description: >
+repository: https://github.com/lrhn/charcode
+description: >-
   Constants for ASCII and common non-ASCII character codes.
 
 environment:
