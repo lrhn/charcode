@@ -8,5 +8,3 @@ analyzer:
     annotate_overrides: ignore
     prefer_single_quotes: ignore
     use_function_type_syntax_for_parameters: ignore
-  enable-experiment:
-    - non-nullable
