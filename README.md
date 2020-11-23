@@ -57,4 +57,4 @@ the HTML entity name is preferred.
 The Dart language doesn't have character literals.
 If that ever changes, this package will become irrelevant.
 Until then, this package can be used for the most common characters.
-See [http://dartbug.com/4415](request for character literals).
+See [request for character literals](http://dartbug.com/4415).
