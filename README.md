@@ -27,7 +27,7 @@ of the characters you want to reference.
 
 Example:
 ```bash
-dart run charcode -o lib/src/charcodes.dart "09ftn{}[],:"
+dart run charcode -o lib/src/charcodes.dart "09.e\-ftn{}[],:"
 ```
 
 Run `dart run charcode --help` to see other options.
