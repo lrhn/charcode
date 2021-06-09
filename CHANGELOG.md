@@ -1,3 +1,7 @@
+## 1.3.1
+
+* Optimize for Pub score.
+
 ## 1.3.0
 
 * Add camelCase constant names as alternatives for current snake_case constants.
