@@ -147,7 +147,6 @@ void warn(String warning) {
 
 /// A single declaration to be written to the output.
 class Entry implements Comparable<Entry> {
-
   /// The code point.
   final int charCode;
 
@@ -196,6 +195,7 @@ class Entry implements Comparable<Entry> {
 class CharacterDeclaration {
   /// The unprefixed name to use for the code point.
   final String name;
+
   /// An optional description.
   final String? description;
   CharacterDeclaration(this.name, this.description);
@@ -332,7 +332,8 @@ class CharcodeBuilder {
           "(U+${charCode.toRadixString(16).toUpperCase().padLeft(4, "0")})");
       return false;
     }
-    _entries.add(Entry(charCode, declaration.name, prefix, declaration.description));
+    _entries.add(
+        Entry(charCode, declaration.name, prefix, declaration.description));
     _entryNames.add(name);
     return true;
   }

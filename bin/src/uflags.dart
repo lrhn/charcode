@@ -424,8 +424,7 @@ String? canonicalizeName(String? name) {
       if (bytes[start] == $dash) start++;
       if (bytes[end - 1] == $dash) end--;
     }
-    return String.fromCharCodes(
-        Uint8List.sublistView(bytes, start, end));
+    return String.fromCharCodes(Uint8List.sublistView(bytes, start, end));
   }
   return upperCase == 0 ? name.toLowerCase() : name;
 }
