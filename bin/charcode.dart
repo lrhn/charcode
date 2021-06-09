@@ -70,7 +70,7 @@ void main(List<String> args, [StringSink? output]) {
     ..add(FlagConfig("?", null, "help",
         description: "Display this usage information"))
     ..add(FlagConfig.optionalParameter("p", "p", "prefix", "",
-        description: "Sets prefix for later generated constants",
+        description: "Sets prefix for later generated constants.",
         valueDescription: "PREFIX"))
     ..add(FlagConfig.requiredParameter("o", "o", "output",
         description: "Write generated code to file instead of stdout",
@@ -84,7 +84,7 @@ void main(List<String> args, [StringSink? output]) {
 
   for (var arg in parseFlags(flags, args, stderr.writeln)) {
     var key = arg.key;
-    if (key == null) {
+    if (!arg.isFlag) {
       // Not a flag, value is command line argument.
       declarations.parse(arg.value!);
     } else {
@@ -178,8 +178,8 @@ class Entry implements Comparable<Entry> {
     output.writeln("const int $prefix$name = 0x$hex;");
   }
 
-  /// Orders entries by [charCode] first, then by
-  /// prefixed and name.
+  /// Orders entries by [charCode] first, then by prefixed and name.
+  @override
   int compareTo(Entry other) {
     var delta = charCode - other.charCode;
     if (delta == 0) {
@@ -886,25 +886,32 @@ void addHtmlEntities(CharcodeBuilder descriptions) {
     ..rename(0x2666, "diams", "black diamond suit ('♦')");
 }
 
+/// Usage string printed if the `--help` or `-?` flags are passed.
+///
+/// Flag definitions are appended after the text.
 const String usageString = r"""
 Usage:
   charcode [-h] [-oFILE] (<character-range> | <rename> | -pPREFIX | -fFILE)*
 
+  Emits constant declarations for the characaters specified by character ranges.
+  The constants use the pre-defined names and descriptions for ASCII characters.
+
   A <character-range> is either
-   - A literal character,
-   - An escaped character `\n`, `\r`, `\t`, `\xhh`, `\uhhhh` or `\dd*`,
-       where `h` is a hexadecimal digit and `d` is a decimal digit.
-   - Two characters separated by `-`,
-   - The `\d`, `\w` or `\s` escapes, or
+   - a literal character,
+   - an escaped character `\n`, `\r`, `\t`, `\xHH`, `\uHHHH` or `\DD*`,
+       where `H` is a hexadecimal digit and `D` is a decimal digit.
+   - two such characters separated by `-`,
+   - The `\d` (`0-9`), `\w` (`a-zA-Z0-9$_`) or `\s` (`\x20\t\r\n`) escapes, or
    - A sequence of character ranges.
   Examples: `a`, `a-z`, `\da-fA-F`, `\x00-\uFFFF`.
 
   A <rename> declaration is a single or escaped character, a `=` and an
   identifier name, optionally followed by a `:` and a description
   Example:  x=cross:\"a cross product.\"
-  The declaration names or renames the character and adds or changes
-  the associated description, but will not add the character to the output.
-  Following occurrences of the character will use the new name.
+  The declaration names or renames the character, and adds or changes
+  the associated description, but will not emit the character to the output.
+  Following occurrences of the character in character ranges
+  will use the new name.
   Example: `charcode y y=why x-z` will generate `$y` for the character
     code of "y", then `$x`, `$why` and `$z` as well.
 

@@ -2,9 +2,4 @@
 # for details. All rights reserved. Use of this source is governed by a
 # BSD-style license that can be found in the LICENSE file.
 
-include: package:pedantic/analysis_options.1.9.0.yaml
-analyzer:
-  errors:
-    annotate_overrides: ignore
-    prefer_single_quotes: ignore
-    use_function_type_syntax_for_parameters: ignore
+include: package:lints/recommended.yaml

@@ -38,14 +38,14 @@ Examples: `$plus`, `$exclamation`, `$tilde`.
 
 The `ascii.dart` library defines a symbolic name for each ASCII character.
 Some characters have more than one name. For example the common name `$tab`
-and the official abbreviation `$ht` for the horisontal tab.
+and the official abbreviation `$ht` for the horizontal tab.
 
 The `html_entity.dart` library defines a constant for each HTML 4.01 character
 entity using their standard entity abbreviation, including case.
 Examples: `$nbsp` for `&nbps;`, `$aring` for the lower-case `&aring;`
 and `$Aring` for the upper-case `&Aring;`.
 
-The HTML entities include all characters in the Latin-1 code page, greek
+The HTML entities include all characters in the Latin-1 code page, Greek
 letters and some mathematical symbols.
 
 The `charcode.dart` library exports both `ascii.dart` and

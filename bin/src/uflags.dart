@@ -36,10 +36,11 @@ import "package:charcode/ascii.dart";
 /// It has a default value to use if the parameter is omitted.
 ///
 /// An unrecognized or malformed flag is reported using the [warn]
-/// function.
+/// function. If omitted, the [warn] function defaults to printing
+/// using the [print] function.
 Iterable<CmdLineArg<T>> parseFlags<T>(
     Flags<T> flags, Iterable<String> arguments,
-    [void warn(String warning)?]) sync* {
+    [void Function(String warning)? warn]) sync* {
   warn ??= _printWarning;
   var args = arguments.iterator;
   while (args.moveNext()) {
@@ -356,15 +357,29 @@ class FlagConfig<T> {
   }
 }
 
+/// Converts names to canonical form.
+///
+/// Canonical form consists of only *lower case ASCII letters*,
+/// *decimal digits* and single *dash* characters (`-`) separating letter/digit
+/// sequences.
+///
+/// All upper-case letters are made lower-case.
+/// If the input-name contains sequences of non-letter, non-digit characters,
+/// each sequence is replaced by a single `-`.
+/// Leading and trailing `-`s are then ignored
+/// if the result contains anything other than `-`.
 String? canonicalizeName(String? name) {
   if (name == null) return name;
   const $dash = 0x2d;
   var wasDash = false;
   var i = 0;
+  var upperCase = 0x20;
   while (i < name.length) {
     var char = name.codeUnitAt(i++);
-    if (char ^ 0x30 <= 9 || char >= 0x61 && char <= 0x7b) {
+    var lcChar = char | 0x20;
+    if (char ^ 0x30 <= 9 || lcChar >= 0x61 && lcChar <= 0x7b) {
       wasDash = false;
+      upperCase &= char;
       continue;
     }
     if (char == $dash && !wasDash) {
@@ -375,27 +390,21 @@ String? canonicalizeName(String? name) {
     var bytes = Uint8List(name.length);
     var j = 0;
     for (; j < i - 1; j++) {
-      bytes[j] = name.codeUnitAt(j);
+      bytes[j] = name.codeUnitAt(j) | 0x20;
     }
 
     // Convert all letters to lower-case, all non letter/digits to a single `-`.
     outer:
     do {
-      if (char >= 0x41 && char <= 0x5b) {
-        bytes[j++] = char | 0x20;
-        i++;
-        wasDash = false;
-      } else {
-        if (!wasDash) {
-          bytes[j++] = $dash;
-          i++;
-          wasDash = true;
-        }
+      if (!wasDash) {
+        bytes[j++] = $dash;
+        wasDash = true;
       }
       while (i < name.length) {
         char = name.codeUnitAt(i++);
-        if (char ^ 0x30 <= 9 || char >= 0x61 && char <= 0x7b) {
-          bytes[j++] = char;
+        var lcChar = char | 0x20;
+        if (char ^ 0x30 <= 9 || lcChar >= 0x61 && lcChar <= 0x7b) {
+          bytes[j++] = lcChar;
           wasDash = false;
           continue;
         }
@@ -408,9 +417,17 @@ String? canonicalizeName(String? name) {
       }
       break;
     } while (true);
-    return String.fromCharCodes(bytes);
+    var start = 0;
+    var end = j;
+    if (end > start + 1) {
+      // Omit leading/trailing dashes.
+      if (bytes[start] == $dash) start++;
+      if (bytes[end - 1] == $dash) end--;
+    }
+    return String.fromCharCodes(
+        Uint8List.sublistView(bytes, start, end));
   }
-  return name;
+  return upperCase == 0 ? name.toLowerCase() : name;
 }
 
 void _printWarning(String message) {

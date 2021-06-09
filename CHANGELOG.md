@@ -1,3 +1,10 @@
+## 1.3.0
+
+* Add camelCase constant names as alternatives for current snake_case constants.
+  Example `$doubleQuote` as alternative to `$double_quote`.
+* Internal tweaks to flag parsing.
+* Switch to using `package:lints`.
+
 ## 1.2.0
 
 * Stable release for null safety.

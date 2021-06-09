@@ -30,7 +30,7 @@ void main() {
     expect(output, contains(r"int $a = 0x61"));
     expect(output, isNot(contains(r"int $b = 0x62")));
     expect(output, contains(r"int $bee = 0x62"));
-    expect(output, contains(r"int Explanation!"));
+    expect(output, contains(r"Explanation!"));
     expect(output, contains(r"int $c = 0x63"));
   });
 
@@ -38,7 +38,7 @@ void main() {
     expect(count(output, r"$"), 2);
     expect(output, contains(r"int $b = 0x62"));
     expect(output, contains(r"int $bee = 0x62"));
-    expect(output, contains(r"int Explanation!"));
+    expect(output, contains(r"Explanation!"));
   });
 
   testOutput(["a-c"], (output) {
