@@ -623,8 +623,8 @@ void addHtmlEntities(CharcodeBuilder descriptions) {
     ..rename(0x00A5, "yen", "yen sign (yuan sign) ('¥')")
     ..rename(0x00A6, "brvbar", "broken bar (broken vertical bar) ('¦')")
     ..rename(0x00A7, "sect", "section sign ('§')")
-    ..rename(
-        0x00A8, "uml", "diaeresis (spacing diaeresis); see Germanic umlaut ('¨')")
+    ..rename(0x00A8, "uml",
+        "diaeresis (spacing diaeresis); see Germanic umlaut ('¨')")
     ..rename(0x00A9, "copy", "copyright symbol ('©')")
     ..rename(0x00AA, "ordf", "feminine ordinal indicator ('ª')")
     ..rename(0x00AB, "laquo",
@@ -637,8 +637,8 @@ void addHtmlEntities(CharcodeBuilder descriptions) {
         0x00AF, "macr", "macron (spacing macron, overline, APL overbar) ('¯')")
     ..rename(0x00B0, "deg", "degree symbol ('°')")
     ..rename(0x00B1, "plusmn", "plus-minus sign (plus-or-minus sign) ('±')")
-    ..rename(
-        0x00B2, "sup2", "superscript two (superscript digit two, squared) ('²')")
+    ..rename(0x00B2, "sup2",
+        "superscript two (superscript digit two, squared) ('²')")
     ..rename(0x00B3, "sup3",
         "superscript three (superscript digit three, cubed) ('³')")
     ..rename(0x00B4, "acute", "acute accent (spacing acute) ('´')")
@@ -702,8 +702,8 @@ void addHtmlEntities(CharcodeBuilder descriptions) {
     ..rename(0x00E3, "atilde", "Latin small letter a with tilde ('ã')")
     ..rename(0x00E4, "auml", "Latin small letter a with diaeresis ('ä')")
     ..rename(0x00E5, "aring", "Latin small letter a with ring above ('å')")
-    ..rename(
-        0x00E6, "aelig", "Latin small letter ae (Latin small ligature ae) ('æ')")
+    ..rename(0x00E6, "aelig",
+        "Latin small letter ae (Latin small ligature ae) ('æ')")
     ..rename(0x00E7, "ccedil", "Latin small letter c with cedilla ('ç')")
     ..rename(0x00E8, "egrave", "Latin small letter e with grave accent ('è')")
     ..rename(0x00E9, "eacute", "Latin small letter e with acute accent ('é')")
@@ -815,21 +815,25 @@ void addHtmlEntities(CharcodeBuilder descriptions) {
     ..rename(0x2033, "Prime", "double prime (seconds, inches) ('″')")
     ..rename(
         0x2039, "lsaquo", "single left-pointing angle quotation mark ('‹')")
-    ..rename(0x203A, "rsaquo", "single right-pointing angle quotation mark ('›')")
+    ..rename(
+        0x203A, "rsaquo", "single right-pointing angle quotation mark ('›')")
     ..rename(0x203E, "oline", "overline (spacing overscore) ('‾')")
     ..rename(0x2044, "frasl", "fraction slash (solidus) ('⁄')")
     ..rename(0x20AC, "euro", "euro sign ('€')")
     ..rename(0x2111, "image", "black-letter capital I (imaginary part) ('ℑ')")
-    ..rename(0x2118, "weierp", "script capital P (power set, Weierstrass p) ('℘')")
+    ..rename(
+        0x2118, "weierp", "script capital P (power set, Weierstrass p) ('℘')")
     ..rename(0x211C, "real", "black-letter capital R (real part symbol) ('ℜ')")
     ..rename(0x2122, "trade", "trademark symbol ('™')")
-    ..rename(0x2135, "alefsym", "alef symbol (first transfinite cardinal) ('ℵ')")
+    ..rename(
+        0x2135, "alefsym", "alef symbol (first transfinite cardinal) ('ℵ')")
     ..rename(0x2190, "larr", "leftwards arrow ('←')")
     ..rename(0x2191, "uarr", "upwards arrow ('↑')")
     ..rename(0x2192, "rarr", "rightwards arrow ('→')")
     ..rename(0x2193, "darr", "downwards arrow ('↓')")
     ..rename(0x2194, "harr", "left right arrow ('↔')")
-    ..rename(0x21B5, "crarr", "downwards arrow with corner leftwards (carriage return) ('↵')")
+    ..rename(0x21B5, "crarr",
+        "downwards arrow with corner leftwards (carriage return) ('↵')")
     ..rename(0x21D0, "lArr", "leftwards double arrow ('⇐')")
     ..rename(0x21D1, "uArr", "upwards double arrow ('⇑')")
     ..rename(0x21D2, "rArr", "rightwards double arrow ('⇒')")
@@ -839,7 +843,8 @@ void addHtmlEntities(CharcodeBuilder descriptions) {
     ..rename(0x2202, "part", "partial differential ('∂')")
     ..rename(0x2203, "exist", "there exists ('∃')")
     ..rename(0x2205, "empty", "empty set (null set); see also U+8960, ⌀ ('∅')")
-    ..rename(0x2207, "nabla", "del or nabla (vector differential operator) ('∇')")
+    ..rename(
+        0x2207, "nabla", "del or nabla (vector differential operator) ('∇')")
     ..rename(0x2208, "isin", "element of ('∈')")
     ..rename(0x2209, "notin", "not an element of ('∉')")
     ..rename(0x220B, "ni", "contains as member ('∋')")
@@ -861,7 +866,8 @@ void addHtmlEntities(CharcodeBuilder descriptions) {
     ..rename(0x2245, "cong", "congruent to ('≅')")
     ..rename(0x2248, "asymp", "almost equal to (asymptotic to) ('≈')")
     ..rename(0x2260, "ne", "not equal to ('≠')")
-    ..rename(0x2261, "equiv", "identical to; sometimes used for 'equivalent to' ('≡')")
+    ..rename(0x2261, "equiv",
+        "identical to; sometimes used for 'equivalent to' ('≡')")
     ..rename(0x2264, "le", "less-than or equal to ('≤')")
     ..rename(0x2265, "ge", "greater-than or equal to ('≥')")
     ..rename(0x2282, "sub", "subset of ('⊂')")
