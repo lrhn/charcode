@@ -1,5 +1,6 @@
 [![Build Status](https://github.com/lrhn/charcode/workflows/Dart%20CI/badge.svg)](https://github.com/lrhn/charcode/actions?query=workflow%3A"Dart+CI")
 [![Pub](https://img.shields.io/pub/v/charcode.svg)](https://pub.dev/packages/charcode)
+[![package publisher](https://img.shields.io/pub/publisher/charcode.svg)](https://pub.dev/packages/charcode/publisher)
 
 # Character code constants
 
