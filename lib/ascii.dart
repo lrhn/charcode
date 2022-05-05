@@ -137,7 +137,7 @@ const int $space = 0x20;
 /// Character `!`.
 const int $exclamation = 0x21;
 
-/// Character `"', short nam`.
+/// Character `"`, short name.
 const int $quot = 0x22;
 
 /// Character `"`.
