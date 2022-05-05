@@ -189,11 +189,15 @@ class Flags<T> {
           ..writeCharCode(char);
         lineLength = 4;
         if (name != null) {
-          buffer..write(", --")..write(name);
+          buffer
+            ..write(", --")
+            ..write(name);
           lineLength = name.length + 8;
         }
       } else if (name != null) {
-        buffer..write("      --")..write(name);
+        buffer
+          ..write("      --")
+          ..write(name);
         lineLength = name.length + 8;
       } else {
         continue;
