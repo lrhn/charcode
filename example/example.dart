@@ -2,29 +2,34 @@
 // for details. All rights reserved. Use of this source is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import "package:charcode/charcode.dart";
+part 'src/charcodes.dart';
 
 void main() {
   print(String.fromCharCodes([
-    $E,
-    $x,
-    $a,
-    $m,
-    $p,
-    $l,
-    $e,
-    $exclamation,
+    _E,
+    _x,
+    _a,
+    _m,
+    _p,
+    _l,
+    _e,
+    _exclamation,
   ]));
+
+  if (!hasBalancedParentheses(
+      '(((a + b) + (c + d)) + (((e + f) + (g + h)) + i))')) {
+    print('Unbalanced!');
+  }
 }
 
 /// Check whether `(` and `)` are balanced in [input].
-bool checkBalancedParentheses(String input) {
+bool hasBalancedParentheses(String input) {
   var openParenCount = 0;
   for (var i = 0; i < input.length; i++) {
     var char = input.codeUnitAt(i);
-    if (char == $lparen) {
+    if (char == _lparen) {
       openParenCount++;
-    } else if (char == $rparen) {
+    } else if (char == _rparen) {
       openParenCount--;
       if (openParenCount < 0) return false;
     }

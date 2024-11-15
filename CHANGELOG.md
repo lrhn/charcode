@@ -1,3 +1,10 @@
+## 1.4.0
+
+* Updates generator to write into existing file without clobbering it.
+* Changes the `-h` flag to be `-H`, so `-h` works for help.
+  (Technically breaking, if anyone uses the flag.)
+* Adds verbose flag.
+
 ## 1.3.1
 
 * Optimize for Pub score.
