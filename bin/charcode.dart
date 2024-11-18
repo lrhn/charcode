@@ -6,7 +6,7 @@ import "dart:io"; // For writing directly to file.
 
 import "package:charcode/ascii.dart";
 
-import "src/uflags.dart";
+import "src/argc.dart";
 
 int verbose = 0;
 
@@ -53,9 +53,10 @@ int verbose = 0;
 /// x=cross:The cross character.
 /// ```
 ///
-/// `-p` followed by zero more characters makes those characters be
-/// used as prefix for later generated names. The default is the `$`
-/// character. If setting an empty prefix, names starting with digits
+/// `-p` or `--prefix=` immediately followed by one or more characters
+/// makes those characters be used as prefix for later generated names.
+/// The default is the `$` character.
+/// If setting an empty prefix, names starting with digits
 /// will still use the previously configured prefix character since
 /// identifiers cannot start with a digit.
 ///
@@ -68,74 +69,70 @@ void main(List<String> args, [StringSink? output]) {
   var declarations = CharcodeBuilder();
   addAscii(declarations);
 
-  var flags = Flags<String>()
-    ..add(FlagConfig("?", "h", "help",
-        description: "Display this usage information"))
-    ..add(FlagConfig.optionalParameter("p", "p", "prefix", "",
-        description: "Sets prefix for later generated constants.",
-        valueDescription: "PREFIX"))
-    ..add(FlagConfig.requiredParameter("o", "o", "output",
-        description: "Write generated code to file instead of stdout",
-        valueDescription: "FILE"))
-    ..add(FlagConfig.requiredParameter("f", "f", "input",
-        description: "Read instructions from file. "
-            "Each line of the file is treated as a non-flag command line entry.",
-        valueDescription: "FILE"))
-    ..add(FlagConfig.requiredParameter("v", "v", "verbose",
-        description: "Increase verbosity for debugging purposes."))
-    ..add(FlagConfig("h", "H", "html",
-        description: "Include HTML entity names in predefined names"));
+  var printHelp = false;
+  var hasError = false;
+  void err(String message) {
+    stderr.writeln(message);
+    hasError = true;
+    printHelp = true;
+  }
 
-  for (var arg in parseFlags(flags, args, stderr.writeln)) {
-    var key = arg.key;
-    if (!arg.isFlag) {
-      // Not a flag, value is command line argument.
-      declarations.parse(arg.value!);
-    } else {
-      switch (key) {
-        case "p":
-          var prefix = arg.value!;
-          if (prefix.isNotEmpty &&
-              (!_isIdentifierPart(prefix) || !_startsWithNonDigit(prefix))) {
-            warn("Invalid prefix, must be valid identifier: $prefix");
-            continue;
-          }
-          declarations.prefix = prefix;
-          break;
-        case "o":
-          if (arg.value != null) {
-            outputFile = arg.value;
-          } else {
-            warn("No file name after `-o` option");
-          }
-          break;
-        case "f":
-          var inputFile = arg.value;
-          if (inputFile != null) {
-            var input = File(inputFile).readAsLinesSync();
-            for (var line in input) {
-              line = line.trimRight();
-              if (line.isNotEmpty) declarations.parse(line);
-            }
-          } else {
-            warn("No file name after `-f` option");
-          }
-          break;
-        case "h":
-          addHtmlEntities(declarations);
-          break;
-        case "v":
-          verbose++;
-          break;
-        case "?":
-          var buffer = StringBuffer(usageString);
-
-          flags.writeUsage(buffer);
-          output.write(buffer);
-          if (output is IOSink) output.flush();
-          return;
-      }
+  var argc = CmdLineScanner(args);
+  while (argc.moveNext()) {
+    if (argc.isLiteral) {
+      declarations.parse(argc.currentLiteral);
+      continue;
     }
+    if (argc.isCurrentFlag("p") || argc.isCurrentOption("prefix")) {
+      var prefix = "";
+      if (argc.moveNextValue(allowNext: false)) {
+        prefix = argc.currentValue;
+      }
+      if (prefix.isNotEmpty &&
+          (!_isIdentifierPart(prefix) || !_startsWithNonDigit(prefix))) {
+        warn("Invalid prefix, must be valid identifier: $prefix");
+      } else {
+        declarations.prefix = prefix;
+      }
+    } else if (argc.isCurrentFlag("o") || argc.isCurrentOption("output")) {
+      if (!argc.moveNextValue()) {
+        err("Output flag requires a file");
+      } else {
+        outputFile = argc.currentValue;
+      }
+    } else if (argc.isCurrentFlag("f") || argc.isCurrentOption("input")) {
+      if (!argc.moveNextValue()) {
+        err("Input file flag requires a file");
+      } else {
+        var input = File(argc.currentValue).readAsLinesSync();
+        for (var line in input) {
+          line = line.trimRight();
+          if (line.isNotEmpty) declarations.parse(line);
+        }
+      }
+    } else if (argc.isCurrentFlag("H") || argc.isCurrentOption("html")) {
+      // Doesn't hurt to do it twice.
+      addHtmlEntities(declarations);
+    } else if (argc.isCurrentFlag("v") || argc.isCurrentOption("verbose")) {
+      verbose++;
+    } else if (argc.isCurrentFlag("h") ||
+        argc.isCurrentFlag("?") ||
+        argc.isCurrentOption("help")) {
+      printHelp = true;
+    } else if (argc.isCurrentOption("")) {
+      assert(argc.current == "--");
+      // No further flags or options.
+      while (argc.moveNextLiteral()) {
+        declarations.parse(argc.currentLiteral);
+      }
+      break;
+    } else {
+      warn("Unknown flag: ${argc.current}");
+    }
+  }
+  if (printHelp) {
+    (hasError ? stderr : output).writeln(usageString);
+    return;
   }
 
   if (outputFile == null) {
@@ -973,8 +970,6 @@ void addHtmlEntities(CharcodeBuilder descriptions) {
 }
 
 /// Usage string printed if the `--help` or `-h` flags are passed.
-///
-/// Flag definitions are appended after the text.
 const String usageString = r"""
 Usage:
   charcode <flags> [-oFILE] (<character-range> | <rename> | -pPREFIX | -fFILE)*
@@ -1001,8 +996,11 @@ Usage:
   Example: `charcode y y=why x-z` will generate `$y` for the character
     code of "y", then `$x`, `$why` and `$z` as well.
 
-  Recognized flags:
+  Flags:
     -h | --help: Print this text.
-    -v | --verbose: Increase verbosity. (Not used yet.)
     -H | --html: Include HTML entity names in default names.
+    -f | --file FILE: Read commands from lines of FILE.
+    -o | --output FILE: Write output to FILE instead of stdoutSTDOUT.
+    -p | --prefix ID: Use ID as prefix. Must be a valid identifier start.
+    -v | --verbose: Increase verbosity. (Not used yet.)
 """;
