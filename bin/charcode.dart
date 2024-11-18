@@ -997,16 +997,16 @@ Usage:
     code of "y", then `$x`, `$why` and `$z` as well.
 
   Flags:
-    -h | --help: 
+    -h | --help : 
         Print this text.
     -fFILE | -f FILE | --input=FILE | --input FILE : 
         Read commands from lines of FILE.
     -oFILE | -o FILE | --output=FILE | --output FILE : 
         Write output to FILE instead of stdoutSTDOUT.
-    -pID | --prefix=ID: 
+    -pID | --prefix=ID :
         Use ID as prefix. Must be empty or a valid identifier start.
-    -H | --html: 
+    -H | --html : 
         Include HTML entity names in default names.
-    -v | --verbose: 
+    -v | --verbose : 
         Increase verbosity.
 """;
