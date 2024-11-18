@@ -160,7 +160,7 @@ class Flags<T> {
       [String? description]) {
     add(FlagConfig.optionalParameter(key, flagChar, flagName, "true",
         description: description, valueDescription: "true"));
-    add(FlagConfig.optionalParameter(key, null, "no-" + flagName, "false"));
+    add(FlagConfig.optionalParameter(key, null, "no-$flagName", "false"));
   }
 
   FlagConfig<T>? byName(String name) => _namedFlags[name];

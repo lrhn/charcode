@@ -17,7 +17,7 @@
 /// Three names conflict with `ascii.dart`: `$minus`, `$sub` and `$tilde`.
 /// If importing both libraries, these three should be hidden from one of the
 /// libraries.
-library charcode.htmlentity.dollar_lowercase;
+library;
 
 export "ascii.dart" show $quot, $amp, $apos, $lt, $gt;
 

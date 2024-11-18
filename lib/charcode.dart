@@ -11,7 +11,7 @@
 /// Hides the characters `$minus`, `$sub` and `$tilde` from
 /// `html_entities.dart`, since other characters have the same name in
 /// `ascii.dart`.
-library charcode;
+library;
 
 export "ascii.dart";
 export "html_entity.dart" hide $minus, $tilde, $sub;

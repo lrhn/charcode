@@ -78,8 +78,8 @@ void main(List<String> args, [StringSink? output]) {
         description: "Write generated code to file instead of stdout",
         valueDescription: "FILE"))
     ..add(FlagConfig.requiredParameter("f", "f", "input",
-        description:
-            "Read instructions from file. Each line of the file is treated as a non-flag command line entry.",
+        description: "Read instructions from file. "
+            "Each line of the file is treated as a non-flag command line entry.",
         valueDescription: "FILE"))
     ..add(FlagConfig.requiredParameter("v", "v", "verbose",
         description: "Increase verbosity for debugging purposes."))
@@ -354,8 +354,8 @@ class CharcodeBuilder {
         if (char <= secondChar) {
           addCharRange(char, secondChar);
         } else {
-          warn(
-              "Invalid range, end before start: ${scanner.input.substring(start, scanner.index)}");
+          warn("Invalid range, end before start: "
+              "${scanner.input.substring(start, scanner.index)}");
           addChar(char);
           scanner.index = afterChar;
         }

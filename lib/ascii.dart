@@ -21,7 +21,7 @@
 ///
 /// For common HTML entities, the entity names are also usable as symbolic
 /// names: [$apos], [$quot], [$lt], [$gt], and [$amp].
-library charcode.ascii.dollar_lowercase;
+library;
 
 // ignore_for_file: constant_identifier_names
 
